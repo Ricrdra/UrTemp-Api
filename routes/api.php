@@ -1,11 +1,6 @@
 <?php
 
-use App\Http\Controllers\
-{
-    PermissionController,
-    RoleController,
-    UserController
-};
+use App\Http\Controllers\{ClassroomController, LogTempController, RoleController, StudentController, UserController};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,9 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('/login', 'AuthController@login');
+Route::post('/register', 'AuthController@register');
 
-Route::prefix('/v1')->group(function () {
-    Route::apiResource('/permissions', PermissionController::class);
+Route::prefix('/v1')->middleware('login_required')->group(function () {
     Route::apiResource('/roles', RoleController::class);
     Route::apiResource('/users', UserController::class);
+    Route::apiResource('/students', StudentController::class);
+    Route::apiResource('/logs', LogTempController::class);
+    Route::apiResource('/classrooms', ClassroomController::class);
 });
