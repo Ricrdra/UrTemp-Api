@@ -18,7 +18,6 @@ return new class extends Migration {
             $table->string("name");
             $table->string("last_name");
             $table->string("phone_number")->nullable();
-            $table->foreign("id")->references("id")->on("users");
         });
     }
 

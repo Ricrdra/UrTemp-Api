@@ -12,7 +12,7 @@ class Person extends Model
     use HasFactory;
 
     protected $table = 'people';
-    protected $fillable = ['name', 'email', 'phone_number'];
+    protected $fillable = ['name', 'last_name', 'phone_number'];
 
 
     public function user(): BelongsTo

@@ -16,7 +16,6 @@ return new class extends Migration {
             $table->id();
             $table->timestamps();
             $table->float('temp');
-            $table->date('date');
             $table->bigInteger('student_id');
             $table->foreign('student_id')->references('id')->on('students');
         });

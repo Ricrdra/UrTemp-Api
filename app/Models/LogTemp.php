@@ -13,7 +13,6 @@ class LogTemp extends Model
     protected $table = 'log_temps';
     protected $fillable = [
         "student_id",
-        "date",
         "temp"
     ];
 

@@ -4,9 +4,6 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\classroom>
- */
 class ClassroomFactory extends Factory
 {
     /**
@@ -16,8 +13,10 @@ class ClassroomFactory extends Factory
      */
     public function definition()
     {
+
         return [
-            //
+            "class_name" => $this->faker->name,
+            "area" => $this->faker->randomElement(\App\Enums\Areas::getAreas()),
         ];
     }
 }

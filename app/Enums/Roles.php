@@ -5,8 +5,8 @@ namespace App\Enums;
 
 class Roles
 {
-    const ADMIN = 'Administrador';
-    const TUTOR = 'Tutor';
+    const ADMIN = 'administrator';
+    const TUTOR = 'tutor';
 
     public static function getRoles(): array
     {
