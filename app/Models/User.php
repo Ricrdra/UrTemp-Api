@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -35,23 +36,21 @@ class User extends Authenticatable
         'password',
     ];
 
-    public function logs(): HasMany
-    {
-        return $this->hasMany(LogTemp::class);
-    }
 
     public function role(): BelongsTo
     {
         return $this->belongsTo(Role::class);
     }
 
-    public function tutor(): HasOne
+    public function person(): HasOne
     {
-        return $this->hasOne(Tutor::class);
+        return $this->hasOne(Person::class);
     }
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
+
+    public function classrooms(): BelongsToMany
+    {
+        return $this->belongsToMany(Classroom::class, 'user_classroom_access'
+            , 'user_id');
+    }
+
 }

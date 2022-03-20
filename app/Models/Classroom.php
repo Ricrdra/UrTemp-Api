@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class classroom extends Model
+class Classroom extends Model
 {
     use HasFactory;
 
@@ -16,14 +16,16 @@ class classroom extends Model
         'area',
     ];
 
-    public function logs(): HasMany
+    public function students(): HasMany
     {
-        return $this->hasMany(LogTemp::class);
+        return $this->hasMany(Student::class);
     }
 
-    public function tutors(): BelongsToMany
+    public function users(): BelongsToMany
     {
-        return $this->belongsToMany(Tutor::class, 'tutors_classrooms');
+        return $this->belongsToMany(User::class, 'user_classroom_access'
+            , 'classroom_id'
+            , 'user_id');
     }
 
 

@@ -10,22 +10,17 @@ class LogTemp extends Model
 {
     use HasFactory;
 
-    protected $table = 'log_temp';
+    protected $table = 'log_temps';
     protected $fillable = [
-        "user_id",
-        "classroom_id",
-        "date_taken",
+        "student_id",
+        "date",
         "temp"
     ];
 
-    public function classroom(): BelongsTo
-    {
-        return $this->belongsTo('App\Models\Classroom');
-    }
 
-    public function user(): BelongsTo
+    public function student(): BelongsTo
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo(Student::class);
     }
 
 }
