@@ -1,0 +1,15 @@
+version: "3.3"
+
+services:
+    postgres:
+        container_name: postgres_service
+        image: postgres:13
+        environment:
+            - POSTGRES_DB=UrTemp
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
+        ports:
+            - "5432:5432"
+        volumes:
+            - ./database/data/postgres_data:/var/lib/postgresql/data
+

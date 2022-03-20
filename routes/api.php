@@ -1,6 +1,11 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\
+{
+    PermissionController,
+    RoleController,
+    UserController
+};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +20,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::group('/v1', function () {
-    Route::apiResource('/users', 'UserController');
-    Route::apiResource('/user_log', 'PostController');
+Route::prefix('/v1')->group(function () {
+    Route::apiResource('/permissions', PermissionController::class);
+    Route::apiResource('/roles', RoleController::class);
+    Route::apiResource('/users', UserController::class);
 });
