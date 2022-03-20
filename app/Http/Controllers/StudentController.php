@@ -12,10 +12,6 @@ class StudentController extends Controller
 {
     use WithPerson;
 
-    /**
-     * Display a listing of the resource.
-     *
-     */
     public function index(): StudentCollection
     {
         return new StudentCollection(Student::all());
@@ -24,36 +20,31 @@ class StudentController extends Controller
 
     public function store(Request $request): StudentResource
     {
-        WithPerson::store($request);
+        $personId = WithPerson::store($request);
+        $request->merge(['id' => $personId]);
         $student = Student::create($request->all());
+
         return new StudentResource($student);
     }
 
     public function show(Student $student)
     {
+        return new StudentResource($student);
+
 
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Student $student
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Student $student)
+    public
+    function update(Request $request, Student $student): StudentResource
     {
-        //
+        $student->update($request->all());
+        return new StudentResource($student);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param \App\Models\Student $student
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Student $student)
+    public
+    function destroy(Student $student)
     {
-        //
+        WithPerson::delete($student->person);
+        $student->delete();
     }
 }

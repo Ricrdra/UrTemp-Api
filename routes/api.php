@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 //Route::post('/register', 'AuthController@register');
 
 Route::prefix('/v1')->group(function () {
-    Route::get('/roles/{role}', [RoleController::class, 'getAllAdmins']);
+    Route::get('/roles/{role}', [RoleController::class, 'getByRole']);
     Route::apiResource('/users', UserController::class);
     Route::apiResource('/students', StudentController::class);
     Route::apiResource('/logs', LogTempController::class);

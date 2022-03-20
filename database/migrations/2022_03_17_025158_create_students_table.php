@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->timestamps();
             $table->string('enrollment');
             $table->unsignedBigInteger('classroom_id');
-            $table->foreign('id')->references('id')->on('people');
+            $table->foreign('id')->references('id')->on('people')->onDelete('cascade');
             $table->foreign('classroom_id')->references('id')->on('classrooms');
         });
     }

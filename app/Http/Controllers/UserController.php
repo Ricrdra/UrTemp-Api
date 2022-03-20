@@ -32,13 +32,17 @@ class UserController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user): UserResource
     {
-        //
+        $user->update($request->all());
+        return new UserResource($user);
+
     }
 
-    public function destroy($id)
+    public function destroy(User $user): bool|string
     {
-        //
+        WithPerson::delete($user->person);
+        $user->delete();
+        return json_encode(['success' => true]);
     }
 }

@@ -7,7 +7,7 @@ use App\Models\Role;
 
 class RoleController extends Controller
 {
-    public function getAllAdmins(string $role): UserCollection
+    public function getByRole(string $role): UserCollection
     {
         $role = Role::where('name', $role)->first();
 
