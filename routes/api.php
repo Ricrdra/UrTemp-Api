@@ -14,10 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/login', 'AuthController@login');
-Route::post('/register', 'AuthController@register');
+//Route::post('/login', 'AuthController@login');
+//Route::post('/register', 'AuthController@register');
 
-Route::prefix('/v1')->middleware('login_required')->group(function () {
+Route::prefix('/v1')->group(function () {
     Route::apiResource('/roles', RoleController::class);
     Route::apiResource('/users', UserController::class);
     Route::apiResource('/students', StudentController::class);
