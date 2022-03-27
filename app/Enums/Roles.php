@@ -14,6 +14,7 @@ class Roles
         return [
             self::ADMIN,
             self::TUTOR,
+            self::REGISTER,
         ];
     }
 }
