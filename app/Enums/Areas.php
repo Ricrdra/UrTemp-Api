@@ -5,9 +5,9 @@ namespace App\Enums;
 
 class Areas
 {
-    const MULTI = 'Multiplaforma';
+    const MULTI = 'Multiplataforma';
     const NETWORK = 'Redes';
-    const DIGITAL_ENVIRONMENT = 'Entornos Digitales';
+    const DIGITAL_ENVIRONMENT = 'Entornos-Digitales';
 
     public static function getAreas(): array
     {

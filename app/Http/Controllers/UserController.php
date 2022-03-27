@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Resources\UserCollection;
 use App\Http\Resources\UserResource;
 use App\Http\Traits\WithPerson;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -44,5 +45,13 @@ class UserController extends Controller
         WithPerson::delete($user->person);
         $user->delete();
         return json_encode(['success' => true]);
+    }
+
+    public function getByRole(string $role): UserCollection
+    {
+        $role = Role::where('name', $role)->first();
+        $users = $role->users;
+        return new UserCollection($users);
+
     }
 }

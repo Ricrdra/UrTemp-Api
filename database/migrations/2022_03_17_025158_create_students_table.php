@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->id();
             $table->timestamps();
             $table->string('enrollment');
+            $table->enum('gender', ['F', 'M']);
             $table->unsignedBigInteger('classroom_id');
             $table->foreign('id')->references('id')->on('people')->onDelete('cascade');
             $table->foreign('classroom_id')->references('id')->on('classrooms');

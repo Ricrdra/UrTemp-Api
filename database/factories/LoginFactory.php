@@ -17,7 +17,9 @@ class LoginFactory extends Factory
     public function definition()
     {
         return [
-            //
+
+
+
         ];
     }
 }

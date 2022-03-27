@@ -12,7 +12,7 @@ class Student extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['enrollment', 'classroom_id', 'id'];
+    protected $fillable = ['enrollment', 'classroom_id', 'gender', 'id'];
 
     public function classroom(): BelongsTo
     {

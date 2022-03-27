@@ -7,6 +7,7 @@ class Roles
 {
     const ADMIN = 'administrator';
     const TUTOR = 'tutor';
+    const REGISTER = 'register';
 
     public static function getRoles(): array
     {

@@ -7,11 +7,8 @@ use App\Models\Role;
 
 class RoleController extends Controller
 {
-    public function getByRole(string $role): UserCollection
+    public function index()
     {
-        $role = Role::where('name', $role)->first();
-
-        $users = $role->users;
-        return new UserCollection($users);
+        return json_encode(Role::all());
     }
 }

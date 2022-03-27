@@ -23,6 +23,7 @@ class StudentFactory extends Factory
             'id' => $person->id,
             'enrollment' => $this->faker->randomNumber(6),
             'classroom_id' => $this->faker->numberBetween(1, 10),
+            'gender' => $this->faker->randomElement(['F', 'M'])
         ];
     }
 }
