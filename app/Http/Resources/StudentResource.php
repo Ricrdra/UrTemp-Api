@@ -29,7 +29,7 @@ class StudentResource extends JsonResource
             $logs[] = [
                 "date" => $log->created_at,
                 "temp" => $log->temp,
-                "allowed" => $log < 37
+                "allowed" => $log->temp < 37
             ];
         }
         return $logs;
